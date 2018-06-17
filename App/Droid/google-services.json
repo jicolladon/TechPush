@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1001398854076",
+    "firebase_url": "https://techpush-b0cc6.firebaseio.com",
+    "project_id": "techpush-b0cc6",
+    "storage_bucket": "techpush-b0cc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001398854076:android:dd3814c6fca9340a",
+        "android_client_info": {
+          "package_name": "com.pasiona.techpush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001398854076-g46h115c186q7aer7r02n34cj4o3555c.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1001398854076-g46h115c186q7aer7r02n34cj4o3555c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDdw3w7FvKLfnbN2o1kxUqyYuyN6jczb8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

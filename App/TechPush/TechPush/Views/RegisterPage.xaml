@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:TechPush.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource White}"
+             Title="Registro de usuario"
+             x:Class="TechPush.Views.RegisterPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="50,10,50,0">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Email" VerticalOptions="CenterAndExpand" Style="{StaticResource TttleLabel}"/>
+                        <Entry Text="{Binding Username}" Placeholder="Introduzca un correo electronico" 
+                               Style="{StaticResource LoginEntryStyle}"  Margin="10,0,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Contraseña" VerticalOptions="CenterAndExpand" Style="{StaticResource TttleLabel}"/>
+                        <Entry Text="{Binding Password}"
+                               Placeholder="Introduzca la contraseña" 
+                               Style="{StaticResource LoginEntryStyle}" IsPassword="True"  Margin="10,0,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Seleccionar Sexo" VerticalOptions="CenterAndExpand" Style="{StaticResource TttleLabel}"/>
+                        <Picker ItemsSource="{Binding Genders}" SelectedItem="{Binding GenderSelected}" Margin="10,0,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Edad" VerticalOptions="CenterAndExpand" Style="{StaticResource TttleLabel}"/>
+                        <Picker ItemsSource="{Binding AgeList}" SelectedItem="{Binding AgeSelected}" Margin="10,0,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                        <Label Text="Recuerdame" VerticalOptions="CenterAndExpand" Style="{StaticResource TttleLabel}"/>
+                        <Switch HorizontalOptions="EndAndExpand" IsToggled="{Binding RememberMe}"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="50,20,50,20">
+                <Button Text="Registrar" HorizontalOptions="FillAndExpand" 
+                    Command="{Binding RegisterCommand}"
+                        IsEnabled="{Binding CanExecuteButton}"
+                        Style="{StaticResource ButtonStyle}">
+                </Button>
+            </StackLayout>
+            <controls:LoadingControl Grid.Row="0" Grid.RowSpan="2"
+                                     IsVisible="False"
+                                     x:Name="BusyDialogControl"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     IsBusy="{Binding IsBusy}"
+                                     InfoBusy="{Binding InfoBusy}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseViewExtended
+    xmlns:base="clr-namespace:TechPush.Views.Base"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:TechPush.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Name="SendNotifications"
+             Title="Enviar"
+             x:Class="TechPush.Views.AdminPage">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="Content" Margin="0,10,0,10">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding Image, Converter={StaticResource ImageNullConverter}}" 
+                           HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           Aspect="AspectFit" WidthRequest="{Binding ImageWidth, Source={x:Reference SendNotifications}}"
+                            HeightRequest="{Binding ImageWidth, Source={x:Reference SendNotifications}}"/>
+                        <Grid HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="10,0,10,0" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Switch IsToggled="{Binding Random}" Grid.Column="1"/>
+                                <Label Text="Random" 
+                                       Style="{StaticResource ListTttleLabel}" VerticalOptions="CenterAndExpand"/>
+                            </Grid>
+                            <Grid HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="10,0,10,0" Grid.Column="1"  IsVisible="{Binding IsActiveSelector}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Switch IsToggled="{Binding All}" Grid.Column="1"/>
+                                <Label Text="Todos"
+                                      
+                                       Style="{StaticResource ListTttleLabel}" VerticalOptions="CenterAndExpand"/>
+                            </Grid>
+                        </Grid>
+                        <!--List of Tags-->
+                        <controls:CustomListStack HorizontalOptions="FillAndExpand" ItemsSource="{Binding Tags}" 
+                                                  IsVisible="{Binding IsActiveSelector}"
+                                                  Grid.Row="2" Grid.Column="0" Grid.RowSpan="2">
+                            <controls:CustomListStack.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="10,0,10,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Switch IsToggled="{Binding Selected}"/>
+                                        <Label Text="{Binding Value}" Grid.Column="1"
+                                           Style="{StaticResource ListTttleLabel}" VerticalOptions="CenterAndExpand"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:CustomListStack.ItemTemplate>
+                        </controls:CustomListStack>
+                        <!--list of Ages-->
+                        <controls:CustomListStack HorizontalOptions="FillAndExpand" ItemsSource="{Binding Ages}" 
+                                                  IsVisible="{Binding IsActiveSelector}"
+                                                  Grid.Row="2" Grid.Column="1">
+                            <controls:CustomListStack.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="10,0,10,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Switch IsToggled="{Binding Selected}"/>
+                                        <Label Text="{Binding Value}" Grid.Column="1"
+                                           Style="{StaticResource ListTttleLabel}" VerticalOptions="CenterAndExpand"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:CustomListStack.ItemTemplate>
+                        </controls:CustomListStack>
+                        <!--list of Genres-->
+                        <controls:CustomListStack HorizontalOptions="FillAndExpand"
+                                                  IsVisible="{Binding IsActiveSelector}"
+                                                  ItemsSource="{Binding Genders}" 
+                                                  Grid.Row="3" Grid.Column="1" >
+                            <controls:CustomListStack.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="10,0,10,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Switch IsToggled="{Binding Selected}"/>
+                                        <Label Text="{Binding Value}" Grid.Column="1"
+                                           Style="{StaticResource ListTttleLabel}" VerticalOptions="CenterAndExpand"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:CustomListStack.ItemTemplate>
+                        </controls:CustomListStack>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <Grid HorizontalOptions="FillAndExpand" Margin="10,20,10,5" ColumnSpacing="10" VerticalOptions="EndAndExpand" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Frame HorizontalOptions="FillAndExpand" BorderColor="{StaticResource Green}" 
+                       VerticalOptions="CenterAndExpand" Padding="5">
+                    <Entry HorizontalOptions="FillAndExpand" Text="{Binding Message}" 
+                           Style="{StaticResource LoginEntryStyle}" Margin="0"/>
+                </Frame>
+                <controls:AnimatedButton ClickCommand="{Binding SendNotificationCommand}"
+                                         VerticalOptions="CenterAndExpand"
+                                         Grid.Column="1"
+                                         WidthRequest="30" HeightRequest="30">
+                    <Image Source="{StaticResource SendImage}" HeightRequest="30" WidthRequest="30" Aspect="AspectFit" />
+                </controls:AnimatedButton>
+                <controls:AnimatedButton ClickCommand="{Binding AddImageNotificationCommand}"
+                                         VerticalOptions="CenterAndExpand"
+                                         Grid.Column="2"
+                                         WidthRequest="50" HeightRequest="30">
+                    <Image Source="{StaticResource AddImage}" HeightRequest="30" WidthRequest="30" Aspect="AspectFit" />
+                </controls:AnimatedButton>
+            </Grid>
+            <controls:LoadingControl Grid.Row="0" Grid.RowSpan="2"
+                                     IsVisible="False"
+                                     x:Name="BusyDialogControl"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     IsBusy="{Binding IsBusy}"
+                                     InfoBusy="{Binding InfoBusy}"/>
+        </Grid>
+    </ContentPage.Content>
+</base:BaseViewExtended>

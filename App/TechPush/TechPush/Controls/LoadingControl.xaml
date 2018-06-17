@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechPush.Controls.LoadingControl"   x:Name="ContainerStack">
+    <Grid x:Name="StackError"
+         RowSpacing="0" Grid.Column="0"
+            BackgroundColor="{StaticResource WhiteTransparent}"
+             VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+        IsVisible="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+    </Grid>
+    <Grid x:Name="stackBusy"
+        RowSpacing="0"
+        Grid.Column="0"
+          BackgroundColor="{StaticResource WhiteTransparent}"
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        IsVisible="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="1" Grid.Column="1" 
+                     HorizontalOptions="FillAndExpand" 
+                     VerticalOptions="FillAndExpand" Padding="10,10,10,5">
+
+            <StackLayout HorizontalOptions="Center">
+                <ActivityIndicator IsRunning="true" IsVisible="True" HorizontalOptions="FillAndExpand" Color="{StaticResource MainColor}"/>
+            </StackLayout>
+
+            <Label x:Name="lblInfoBusy" VerticalOptions="FillAndExpand" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="{StaticResource MainColor}" />
+
+            <StackLayout x:Name="ProgressBarLoadingStack" Grid.Row="2" HorizontalOptions="FillAndExpand"  HeightRequest="5">
+                <ProgressBar x:Name="ProgressBarLoading" HorizontalOptions="FillAndExpand" IsVisible="False" BackgroundColor="{StaticResource WhiteColor}" />
+            </StackLayout>
+        </StackLayout>
+
+    </Grid>
+</Grid>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+                        xmlns:converters="clr-namespace:TechPush.Converters"
+                        x:Class="TechPush.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <converters:ImageNullConverter x:Key="ImageNullConverter" />
+        </ResourceDictionary>
+        <Color x:Key="White">#FFFFFF</Color>
+        <Color x:Key="Green">#8dd207</Color>
+        <Color x:Key="Blue">#4565fe</Color>
+        <Color x:Key="MainColor">#004D71</Color>
+        <Color x:Key="EntryColor">#FFFFFF</Color>
+        <Color x:Key="TextColor">#004D71</Color>
+        <Color x:Key="PlaceholderColor">#9D9C9C</Color>
+        <Color x:Key="DisabledButtonColor">#DADFE1</Color>
+        <Color x:Key="EnabledButtonColor">#DC5F13</Color>
+        <Color x:Key="TextColorButton">#FFFFFF</Color>
+        <Color x:Key="WhiteColor">#FFFFFF</Color>
+        <Color x:Key="WhiteTransparent">#AFAFAFAF</Color>
+        <Color x:Key="TitleColor">#DC5F13</Color>
+        <Color x:Key="GreyColor">#4A4A4A</Color>
+        <Color x:Key="LightGrayColor">#DADFE1</Color>
+        <Color x:Key="Black">#000000</Color>
+        <Color x:Key="DisabledMenuText">#88FFFFFF</Color>
+        <Color x:Key="DisabledBackgroundColor">#8C8C8C8C</Color>
+        <Color x:Key="Red">#FF3000</Color>
+
+       
+
+        <OnPlatform x:Key="EntryHeight" x:TypeArguments="x:Double">
+            <On Platform="Android" Value="44"/>
+            <On Platform="UWP" Value="44"/>
+            <On Platform="iOS" Value="44"/>
+        </OnPlatform>
+        
+        <OnPlatform x:Key="FontSize" x:TypeArguments="x:Double">
+            <On Platform="Android" Value="15"/>
+            <On Platform="UWP" Value="15.0"/>
+            <On Platform="iOS" Value="15"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="ButtonFontSize" x:TypeArguments="x:Double">
+            <On Platform="Android" Value="17"/>
+            <On Platform="UWP" Value="17"/>
+            <On Platform="iOS" Value="17"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="ButtonHeight" x:TypeArguments="x:Double">
+            <On Platform="Android" Value="44"/>
+            <On Platform="UWP" Value="44"/>
+            <On Platform="iOS" Value="44"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="LogoImage" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="Logo.png"/>
+            <On Platform="UWP" Value="Resources/Logo.png"/>
+            <On Platform="iOS" Value="Logo.png"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="LogoFull" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="LogoTech.png"/>
+            <On Platform="UWP" Value="Resources/LogoTech.png"/>
+            <On Platform="iOS" Value="LogoTech.png"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="MonkeyImage" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="monkey.png"/>
+            <On Platform="UWP" Value="Resources/monkey.png"/>
+            <On Platform="iOS" Value="monkey.png"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="AddImage" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="AddImage.png"/>
+            <On Platform="UWP" Value="Resources/AddImage.png"/>
+            <On Platform="iOS" Value="AddImage.png"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="SendImage" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="SendIcon.png"/>
+            <On Platform="UWP" Value="Resources/SendIcon.png"/>
+            <On Platform="iOS" Value="SendIcon.png"/>
+        </OnPlatform>
+
+
+        <OnPlatform x:Key="DeniedImage" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="noooo.png"/>
+            <On Platform="UWP" Value="Resources/noooo.png"/>
+            <On Platform="iOS" Value="noooo.png"/>
+        </OnPlatform>
+
+
+        <OnPlatform x:Key="ShareIcon" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="shareIcon.png"/>
+            <On Platform="UWP" Value="Resources/shareIcon.png"/>
+            <On Platform="iOS" Value="shareIcon.png"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="LogoPasiona" x:TypeArguments="ImageSource">
+            <On Platform="Android" Value="logoPasiona.png"/>
+            <On Platform="UWP" Value="Resources/LogoPasiona.png"/>
+            <On Platform="iOS" Value="LogoPasiona.png"/>
+        </OnPlatform>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <!-- Disable controls when the activity indicator is running -->
+            <Setter Property="BackgroundColor" Value="{StaticResource DisabledButtonColor}"/>
+            <Setter Property="HeightRequest" Value="{StaticResource ButtonHeight}"/>
+            <Setter Property="CornerRadius" Value="23"/>
+            <Setter Property="FontSize" Value="{StaticResource ButtonFontSize}"/>
+            <Setter Property="TextColor" Value="{StaticResource Black}"/>
+            <Style.Triggers>
+                <Trigger TargetType="Button"
+                             Property="IsEnabled" Value="True">
+                    <Setter Property="BackgroundColor" Value="{StaticResource Green}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="LoginEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="{StaticResource Black}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource EntryColor}"/>
+            <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderColor}"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="FontAttributes" Value="None"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
+            <Setter Property="HeightRequest" Value="{StaticResource EntryHeight}"/>
+        </Style>
+
+        <Style x:Key="TttleLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        </Style>
+
+        <Style x:Key="ListTttleLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource Blue}"/>
+        </Style>
+
+        <Style x:Key="SimpleLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontAttributes" Value="None"/>
+            <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        </Style>
+
+    </Application.Resources>
+</prism:PrismApplication>

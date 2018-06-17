@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechPushCoreApi.Data", "TechPushCoreApi.Data\TechPushCoreApi.Data.csproj", "{A4A61A4C-7638-4D76-B79F-D6CFD1A629BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechPushCoreApi.Services", "TechPushCoreApi.Services\TechPushCoreApi.Services.csproj", "{C9015513-8E46-4FBD-B369-9B713E77FE93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechPushCoreApi", "TestProj\TechPushCoreApi.csproj", "{8226C705-C689-4440-97AF-5705F374DF02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4A61A4C-7638-4D76-B79F-D6CFD1A629BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A61A4C-7638-4D76-B79F-D6CFD1A629BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A61A4C-7638-4D76-B79F-D6CFD1A629BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A61A4C-7638-4D76-B79F-D6CFD1A629BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9015513-8E46-4FBD-B369-9B713E77FE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9015513-8E46-4FBD-B369-9B713E77FE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9015513-8E46-4FBD-B369-9B713E77FE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9015513-8E46-4FBD-B369-9B713E77FE93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8226C705-C689-4440-97AF-5705F374DF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8226C705-C689-4440-97AF-5705F374DF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8226C705-C689-4440-97AF-5705F374DF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8226C705-C689-4440-97AF-5705F374DF02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
