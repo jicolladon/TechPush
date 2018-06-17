@@ -5,20 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Certificates\TechPushDev.p12" />
-    <None Remove="Certificates\TechPushProduction.p12" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Certificates\TechPushDev.p12">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Certificates\TechPushProduction.p12">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.2" />
   </ItemGroup>
@@ -30,5 +16,9 @@
   <ItemGroup>
     <ProjectReference Include="..\TechPushCoreApi.Data\TechPushCoreApi.Data.csproj" />
     <ProjectReference Include="..\TechPushCoreApi.Services\TechPushCoreApi.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Certificates\" />
   </ItemGroup>
 </Project>
