@@ -26,6 +26,7 @@ namespace TechPush.iOS
             return base.FinishedLaunching(app, options);
         }
 
+        //Metodo para permitir las notificaciones Push
         private void RegisterPush()
         {
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
@@ -44,6 +45,7 @@ namespace TechPush.iOS
             }
         }
 
+        //Metodo para capturar el Token de notificaciones Push
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             // Get current device token

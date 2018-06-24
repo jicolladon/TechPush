@@ -29,7 +29,6 @@ namespace TechPushCoreApi.Services.Implementations
             _settings = settings;
         }
 
-
         public void SendNotification(PushSendEntity entity, string rootPath)
         {
             if (entity != null)
@@ -51,7 +50,7 @@ namespace TechPushCoreApi.Services.Implementations
             }
         }
 
-
+        //Envio de notificaciones en Android
         private bool SendAndroidNotification(string title,string message, IEnumerable<PushRegistration> elements)
         {
             var res = true;
@@ -63,10 +62,9 @@ namespace TechPushCoreApi.Services.Implementations
 
                 };
 
-                // Create a new broker
                 var gcmBroker = new GcmServiceBroker(config);
 
-                // Wire up events
+                //Evento de errores
                 gcmBroker.OnNotificationFailed += (notification, aggregateEx) =>
                 {
 
@@ -133,14 +131,15 @@ namespace TechPushCoreApi.Services.Implementations
                     });
                 };
 
+                //Evento de Success
                 gcmBroker.OnNotificationSucceeded += (notification) =>
                 {
                     Console.WriteLine("GCM Notification Sent!");
                 };
 
-                // Start the broker
                 gcmBroker.Start();
                 
+                //Payload de Android
                 var jsonObject = JObject.Parse(
                     "{" +
                     "\"title\" : \"" + title + "\"," +
@@ -149,7 +148,7 @@ namespace TechPushCoreApi.Services.Implementations
                     "}");
                 foreach (var element in elements)
                 {
-                    // Queue a notification to send
+                    // Envio de notificación
                     gcmBroker.QueueNotification(new GcmNotification
                     {
                         RegistrationIds = new List<string> { element.Token },
@@ -157,9 +156,6 @@ namespace TechPushCoreApi.Services.Implementations
                     });
                 }
 
-                // Stop the broker, wait for it to finish   
-                // This isn't done after every message, but after you're
-                // done with the broker
                 gcmBroker.Stop();
 
             }
@@ -171,11 +167,13 @@ namespace TechPushCoreApi.Services.Implementations
 
         }
 
+        //Envio de notificaciones en iOS
         private bool SendIosNotifications(string title, string message, IEnumerable<PushRegistration> elements, string rootPath)
         {
             var res = true;
             try
             {
+                //Obtención de los datos de configuración
                 var pathCert = Path.Combine(rootPath, _settings.Value.IOSCertificatePath);
                 var pass = _settings.Value.IOSPassCertificate;
                 var type = _settings.Value.IOSTypeCertificate;
@@ -190,24 +188,27 @@ namespace TechPushCoreApi.Services.Implementations
 
                 JObject jsonObject;
 
-
+                //Payload de iOS
                 jsonObject = JObject.Parse("{ \"aps\" : { \"alert\" : {\"title\" : \"" + title + "\", \"body\" :\"" + message + "\"} }}");
 
 
                 foreach (var pushRegistration in elements)
                 {
 
+                    //Envio de notificación
                     apnsBroker.QueueNotification(new ApnsNotification
                     {
                         DeviceToken = pushRegistration.Token,
                         Payload = jsonObject
                     });
 
+                    //Gestión de errores
                     apnsBroker.OnNotificationFailed += (notification, exception) =>
                     {
                         Debug.WriteLine(exception);
                     };
 
+                    //Gestión de exito
                     apnsBroker.OnNotificationSucceeded += (notification) =>
                     {
                         Debug.WriteLine(notification);
