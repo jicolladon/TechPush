@@ -21,6 +21,8 @@ namespace TechPush.Bussiness
             this.deviceService = deviceService;
             this.appService = appService;
         }
+
+        //Registro en el servidor de notificaciones push
         public async Task<bool> RegisterPush(UserDto user)
         {
             var tries = 5;

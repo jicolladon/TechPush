@@ -20,6 +20,8 @@ namespace TechPush.Droid.PushConfig
             CreateNotification(ApplicationContext, msg?.Title, msg?.Body);
         }
 
+        //Recepcion y creación de la notificación
+
         private void CreateNotification(Context context,string title, string desc)
         {
             MessagingCenter.Send(CommonHelper.UpdateListRequests, CommonHelper.UpdateListRequests);

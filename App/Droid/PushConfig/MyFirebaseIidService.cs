@@ -8,6 +8,7 @@ namespace TechPush.Droid.PushConfig
     [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseIidService : FirebaseInstanceIdService
     {
+        //Obtencion del Token
         const string Tag = "MyFirebaseIIDService";
         public override void OnTokenRefresh()
         {
